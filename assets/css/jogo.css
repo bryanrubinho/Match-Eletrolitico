@@ -417,7 +417,7 @@ h2 {
 
   .mask h2 {
     font-size: 50px !important; /* ajusta Eletrolítico */
-    margin-top: -10px; /* aproxima do Match */
+    margin-top: 20px; /* aproxima do Match */
   }
 
   .mask h3 {
@@ -434,4 +434,5 @@ h2 {
     padding: 10px 20px;
   }
 }
+
 
