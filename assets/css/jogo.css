@@ -1,0 +1,436 @@
+/* === ESTILO GERAL === */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #294CAB, #B26EDB);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* === TÍTULOS === */
+h1 {
+  font-size: 8vw !important;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px #fff;
+  text-shadow: 3px 3px 0 #ffff02;
+  text-align: center;
+  margin-top: -4vh !important;
+  margin-bottom: -2vh !important;
+  color: white;
+}
+
+h2 {
+  font-size: 5vw !important;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: white;
+  text-align: center;
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* === GRID DE CARTAS === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+.card {
+  aspect-ratio: 3/4;
+  width: 120px;
+  position: relative;
+  transition: all 400ms ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card.reveal-card {
+  transform: rotateY(180deg);
+}
+
+.face {
+  backface-visibility: hidden;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.front {
+  transform: rotateY(180deg);
+  background-size: cover;
+  background-position: center;
+}
+
+.back {
+  background-image: url('../imagens/tras.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* === PLACAR E VEZ === */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.turn-indicator {
+  text-align: center;
+  margin: 20px 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* === POPUP GERAL === */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 20px;
+}
+
+.popup.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* === CONTEÚDO DO POPUP === */
+.popup-content {
+  background: #fff;
+  border-radius: 15px;
+  padding: 50px 40px;
+  width: 90%;
+  max-width: 950px;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: center;
+  position: relative;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.popup-content h1 {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  font-size: 2em;
+  font-family: "Arapey";
+}
+
+.popup-content h2 {
+  font-size: 1.8em !important;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: rgb(22, 22, 22);
+  margin-bottom: 20px;
+}
+
+/* === FECHAR POPUP  === */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #000;
+  background: none;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 1002; /* garante que está acima de tudo */
+  pointer-events: auto; /* garante que pode clicar */
+}
+
+.popup-content {
+  position: relative;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  color: #c62828;
+  transform: rotate(90deg);
+}
+
+/* === CARTAS NO POPUP === */
+.popup-content .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.popup-content img.card-popup {
+  width: 220px;
+  height: auto;
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.popup-content img.card-popup:hover {
+  transform: scale(1.05);
+}
+
+/* === MÁSCARA DE ENTRADA === */
+.mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #294CAB, #B26EDB);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  color: #fff;
+  font-family: "Arapey", sans-serif;
+  text-align: center;
+}
+
+.mask input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+.mask button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to left, #294CAB, #B26EDB);
+  color: #fff;
+  cursor: pointer;
+}
+
+.mask button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.mask h1 {
+  font-size: 6vw !important;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px #fff;
+  text-shadow: 6px 6px 0 #ffff02;
+  text-align: center;
+  margin-top: -10vh !important;
+  margin-bottom: -7vh !important;
+}
+
+.mask h2 {
+  font-size: 6vw !important;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: white;
+}
+
+.mask h3 {
+  font-size: 1.2vw;
+  font-style: italic;
+}
+
+/* === POPUP FINAL (VITÓRIA) === */
+.victory {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(to right, #B26EDB, #294CAB);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  width: 95%;
+  max-width: 750px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.victory h1 {
+  font-family: "Arapey", serif;
+  font-size: 2.5em;
+  color: rgb(255, 255, 255) !important;
+  -webkit-text-fill-color: #f5f2f2 !important;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.victory h2 {
+  font-size: 1.6em;
+  font-style: italic;
+  color: rgb(248, 240, 240) !important;
+  margin-bottom: 25px;
+}
+
+
+/* === BOTÕES FINAIS (CORRIGIDO) === */
+.victory button.credits,
+.victory button.play-again {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  padding: 14px 30px;
+  margin: 10px 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.victory button:hover {
+  background: #6b1fad;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===== Estilo dos botões do popup final ===== */
+#popupFinal .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+#popupFinal .buttons button {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#popupFinal .buttons button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+#popupFinal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#popupFinal .close-btn:hover {
+  transform: scale(1.2);
+  color: #8b5cf6;
+}
+
+
+/* === RESPONSIVO === */
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .card {
+    width: 90px;
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card {
+    width: 70px;
+  }
+  .popup-content {
+    width: 95%;
+    padding: 25px 15px;
+  }
+  .popup-content img.card-popup {
+    width: 130px;
+  }
+  .mask h3 {
+    font-size: 3.5vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card {
+    width: 60px;
+  }
+  .popup-content img.card-popup {
+    width: 110px;
+  }
+}
+/* Ajustes específicos para telas pequenas (celulares) */
+@media (max-width: 600px) {
+  .mask h1 {
+    font-size: 70px !important; /* reduz o tamanho do Match */
+    line-height: 1.1;
+  }
+
+  .mask h2 {
+    font-size: 50px !important; /* ajusta Eletrolítico */
+    margin-top: 20px; /* aproxima do Match */
+  }
+
+  .mask h3 {
+    font-size: 18px;
+  }
+
+  .mask input {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  .mask button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}

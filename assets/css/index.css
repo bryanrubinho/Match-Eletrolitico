@@ -1,0 +1,141 @@
+body{
+  background: linear-gradient(to right, #294CAB, #B26EDB);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family:'Arapey' , sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+/* ----- Títulos ----- */
+h1 {
+  font-size: 10vw !important; /* responsivo */
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px #fff;
+  text-shadow: 6px 6px 0 #ffff02;
+  text-align: center;
+  margin-top: 10vh !important;
+  margin-bottom: -2vh !important;
+  color: white;
+}
+
+h2 {
+  font-size: 10vw !important; /* responsivo */
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: white;
+  text-align: center;
+}
+
+/* ----- Botão ----- */
+.botao {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh !important;
+}
+
+.btn-3.comecar {
+  width: 20vw; /* responsivo */
+  background: linear-gradient(to left, #294CAB, #B26EDB);
+  border-radius: 30%;
+  border: solid;
+  color: white;
+  font-size: 2vw;
+  font-family: "Arapey";
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw 2vw;
+}
+
+.btn-3:hover {
+  background-color: #ab299a;
+  transform: scale(1.05);
+}
+
+/* ----- Container principal ----- */
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* ----- Gotas ----- */
+.gota {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.8;
+  z-index: -1; /* fica atrás do texto */
+}
+
+/* Cores */
+.azul { background: #007bff; }
+.vermelha { background: #ff3b3b; }
+
+/* ----- Posições Responsivas ----- */
+.gota:nth-child(1) {
+  width: 5vw; height: 13vw;
+  left: 25%;
+  top: 5%;
+  transform: rotate(-210deg);
+}
+.gota:nth-child(2) {
+  width: 3vw; height: 10vw;
+  left: 23%;
+  top: 18%;
+  transform: rotate(-260deg);
+}
+.gota:nth-child(3) {
+  width: 3vw; height: 10vw;
+  left: 30%;
+  top: 20%;
+  transform: rotate(-160deg);
+}
+.gota:nth-child(4) {
+  width: 6vw; height: 10vw;
+  right: 36%;
+  top: 38%;
+  transform: rotate(-140deg);
+}
+.gota:nth-child(5) {
+  width: 5vw; height: 9vw;
+  right: 33%;
+  top: 30%;
+  transform: rotate(-190deg);
+}
+.gota:nth-child(6) {
+  width: 6vw; height: 10vw;
+  right: 38%;
+  top: 42%;
+  transform: rotate(-105deg);
+}
+
+/* ----- Ajuste para telas menores ----- */
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 14vw !important;
+  }
+
+  .gota {
+    opacity: 0.7;
+  }
+
+  .btn-3.comecar {
+    width: 50vw;
+    font-size: 4vw;
+  }
+}
