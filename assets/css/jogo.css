@@ -408,3 +408,30 @@ h2 {
     width: 110px;
   }
 }
+/* Ajustes específicos para telas pequenas (celulares) */
+@media (max-width: 600px) {
+  .mask h1 {
+    font-size: 70px !important; /* reduz o tamanho do Match */
+    line-height: 1.1;
+  }
+
+  .mask h2 {
+    font-size: 50px !important; /* ajusta Eletrolítico */
+    margin-top: -10px; /* aproxima do Match */
+  }
+
+  .mask h3 {
+    font-size: 18px;
+  }
+
+  .mask input {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  .mask button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+
