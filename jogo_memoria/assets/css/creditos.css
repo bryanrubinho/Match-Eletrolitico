@@ -1,0 +1,48 @@
+    body {
+      background: linear-gradient(to right, #294CAB, #B26EDB);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+    .creditos-container {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      color: #00eaff;
+    }
+    strong{
+      color:black;
+    }
+    p {
+      color: white;
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .btn-voltar {
+      margin-top: 25px;
+      background-color: #00eaff;
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+    .btn-voltar:hover {
+      background-color: #fff;
+      color: #000;
+      transform: scale(1.05);
+    }
