@@ -1,0 +1,137 @@
+
+body{
+  background: linear-gradient(to right, #294CAB, #B26EDB);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.botao_regras{
+  display: flex;
+  margin-top: 20px !important;
+  height:40% ;
+  justify-content: space-around; /* Espaço uniforme entre os botões */
+}
+.btn-3.regras{
+  width: 150px;
+  font-family: "Arapey", serif;
+  background: linear-gradient(to left, #294CAB, #B26EDB);
+  border-radius: 40%;
+  border: solid;
+  color: white;
+  font-size: 30px;
+  text-decoration: none; /* remove sublinhado do <a>*/
+  display: flex;
+  justify-content:center ;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-3:hover { 
+  background-color: #ab299a ;     /* Tom mais escuro no hover */
+  transform: scale(1.05);        /* Efeito leve de crescimento */
+}
+h1 { 
+  font-size: 100px !important;
+  font-weight: bold; /*NEGRITO*/
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: transparent; /* preenchimento transparente das letras por cima*/
+  -webkit-text-stroke: 3px #fff; /* contorno branco */
+  text-shadow: 6px 6px 0 #ffff02; /* sombra amarela deslocada */
+  text-align: center;
+  color: white;
+  margin-top: 5% !important;
+}
+h2{
+  font-size:100px !important;
+  font-style: italic ;
+  font-weight: bold;
+  font-family: "Arapey", serif;
+  -webkit-text-fill-color: white; /* preenchimento branco */
+  /*alinhamento no centro*/
+  text-align: center;
+  margin-top: -3% !important;
+
+}
+.carta {
+  
+  width: 300px;
+  height: 420px;
+  perspective: 1000px; /* profundidade 3D */
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.carta-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* Frente e verso */
+.carta-front, .carta-back {
+  position: absolute;
+  width: 100%;
+  height: 103%;
+  border-radius: 30px;
+  border: 3px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  backface-visibility: hidden; /* esconde o outro lado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Frente da carta */
+.carta-front {
+  background-image: url('../imagens/tras.png');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 0 #ffde59, -2px -2px 0 #000;
+}
+
+/* Verso da carta */
+.carta-back {
+  background-image: url('../imagens/regras.png');
+  background-size: cover;
+  background-position: center; 
+  color: #333;
+  font-family: Arial, sans-serif;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Quando vira */
+.carta.virada .carta-inner {
+  transform: rotateY(180deg) scale(1.50); /* gira e cresce */
+}
+
+.clique-texto {
+  
+  font-size: 14px;
+  font-style: italic;
+  color: #ffde59;
+  text-shadow: 1px 1px 2px #000;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  h1, h2 {
+    font-size: 14vw !important;
+  }
+
+  .gota {
+    opacity: 0.7;
+  }
+
+  .btn-3.comecar {
+    width: 50vw;
+    font-size: 4vw;
+  }
+}
