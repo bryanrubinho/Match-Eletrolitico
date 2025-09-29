@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match Eletrolítico</title>
+  <link rel="stylesheet" href="assets/css/jogo.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Tela inicial -->
+  <div class="mask">
+    <h1>Match</h1>
+    <h2>Eletrolítico</h2>
+    <h3>Insira os nomes para começar</h3>
+    <input type="text" class="player1" placeholder="Jogador 1" />
+    <input type="text" class="player2" placeholder="Jogador 2" />
+    <button class="startBtn" disabled>Começar Jogo</button>
+  </div>
+
+  <!-- Conteúdo do jogo -->
+  <div class="content">
+    
+    <!-- Indicação de vez -->
+    <div class="turn-indicator" style="display:none;">
+      <h3 id="vez">Vez de: Jogador 1</h3>
+    </div>
+
+    <!-- Placar -->
+    <div class="scoreboard">
+      <span id="player1">Jogador 1: 0</span>
+      <span id="player2">Jogador 2: 0</span>
+    </div>
+
+    <!-- Cartas -->
+    <div class="grid"></div>
+  </div>
+
+  <!-- Popup do Par -->
+  <div id="popupPar" class="popup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Parabéns! Você encontrou um par!</h2>
+      <div class="popup-body card-container">
+        <!-- Imagens e textos do par aparecem aqui via JS -->
+      </div>
+    </div>
+  </div>
+
+<!-- Popup Final -->
+<div id="popupFinal" class="popup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <div class="victory">
+      <h1>Parabéns!</h1>
+      <h2>Vocês completaram o jogo!</h2>
+      <p id="winner-text"></p>
+    </div>
+    <div class="buttons">
+      <button class="play-again">Jogar Novamente</button>
+      <button class="credits" onclick="window.location.href='creditos.html'">Créditos</button>
+    </div>
+  </div>
+</div>
+
+  <script src="assets/js/scripts.js" defer></script>
+</body>
+</html>
